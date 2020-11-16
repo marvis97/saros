@@ -26,6 +26,8 @@ import saros.synchronize.UISynchronizer;
 /** Intellij related context */
 public class SarosIntellijContextFactory extends AbstractContextFactory {
 
+  private static final String IMPLEMENTATION_IDENTIFIER = "I";
+
   /**
    * Must not be static in order to avoid heavy work during class initialization
    *
@@ -64,6 +66,10 @@ public class SarosIntellijContextFactory extends AbstractContextFactory {
     for (Component component : getContextComponents()) {
       container.addComponent(component.getBindKey(), component.getImplementation());
     }
+
+    container.addComponent(
+        BindKey.bindKey(String.class, IContextKeyBindings.SarosImplementation.class),
+        IMPLEMENTATION_IDENTIFIER);
 
     container.addComponent(
         BindKey.bindKey(String.class, IContextKeyBindings.SarosVersion.class),

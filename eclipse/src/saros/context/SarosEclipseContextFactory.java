@@ -33,6 +33,8 @@ import saros.ui.util.XMPPConnectionSupport;
 /** Factory used for creating the Saros context when running as Eclipse plugin. */
 public class SarosEclipseContextFactory extends AbstractContextFactory {
 
+  private static final String IMPLEMENTATION_IDENTIFIER = "E";
+
   private final Saros saros;
 
   /**
@@ -87,6 +89,10 @@ public class SarosEclipseContextFactory extends AbstractContextFactory {
     container.addComponent(saros);
 
     container.addComponent(Bundle.class, saros.getBundle());
+
+    container.addComponent(
+        BindKey.bindKey(String.class, IContextKeyBindings.SarosImplementation.class),
+        IMPLEMENTATION_IDENTIFIER);
 
     container.addComponent(
         BindKey.bindKey(String.class, IContextKeyBindings.SarosVersion.class),

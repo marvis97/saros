@@ -39,6 +39,8 @@ public class ServerContextFactory extends AbstractContextFactory {
 
   private static final Logger log = Logger.getLogger(ServerContextFactory.class);
 
+  private static final String IMPLEMENTATION_IDENTIFIER = "S";
+
   @Override
   public void createComponents(MutablePicoContainer c) {
     addVersionString(c);
@@ -47,6 +49,10 @@ public class ServerContextFactory extends AbstractContextFactory {
   }
 
   private void addVersionString(MutablePicoContainer c) {
+    c.addComponent(
+        BindKey.bindKey(String.class, IContextKeyBindings.SarosImplementation.class),
+        IMPLEMENTATION_IDENTIFIER);
+
     c.addComponent(
         BindKey.bindKey(String.class, IContextKeyBindings.SarosVersion.class),
         SarosServer.SAROS_VERSION);

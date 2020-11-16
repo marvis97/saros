@@ -35,6 +35,13 @@ public interface IContextKeyBindings {
   @Retention(RetentionPolicy.RUNTIME)
   @Target({ElementType.FIELD, ElementType.PARAMETER})
   @Bind
+  public @interface SarosImplementation {
+    // marker interface
+  }
+
+  @Retention(RetentionPolicy.RUNTIME)
+  @Target({ElementType.FIELD, ElementType.PARAMETER})
+  @Bind
   public @interface SarosVersion {
     // marker interface
   }
