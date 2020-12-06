@@ -8,7 +8,7 @@
 		"url": "https://github.com/saros-project/saros"
 	},
 	"engines": {
-		"vscode": "^1.38.0"
+		"vscode": "^1.51.1"
 	},
 	"categories": [
 		"Other"
